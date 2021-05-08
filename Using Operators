@@ -1,0 +1,17 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int n1,n2;
+    printf("Enter the first number\n");
+    scanf("%d",n1);
+    printf("Enter the second number\n");
+    scanf("%d",n2);
+    printf("Multiplication of %d and %d is %d",n1,n2,n1*n2);
+    printf("Division of %d and %d is %d",n1,n2,n1/n2);
+    printf("Addition of %d and %d is %d",n1,n2,n1+n2);
+    printf("Substraction of %d and %d is %d",n1,n2,n1-n2);
+    printf("Remainder for %d and %d is %d",n1,n2,n1%n2);
+    return 0;
+}
