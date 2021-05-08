@@ -1,0 +1,305 @@
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+
+struct order{
+    char name[30];
+    int order_no;
+    int food_count;
+    int cost;
+}or[100];
+int ordered= 0,served = 0, waiting = 0;
+void items ()
+{
+    int n;
+    printf("ENTER YOUR NAME : \n");
+    scanf("%s",or[ordered].name);
+    printf("..................................THE MENU....................................\n");
+
+    printf("Code---------ITEMS AVAILABLE-------------------SIZE--------------------Price(IN RS)\n");
+
+    printf("[1]---------CHICKEN PIZZA--------------10/12/14 Inches---------------550/775/950\n");
+    printf("[2]---------FRIED CHICKEN--------------2/4/9 pcs---------------------145/310/600\n");
+    printf("[3]---------SP BIRYANI-----------------Single/full-------------------110/250\n");
+    printf("[4]---------BURGER---------------------150/300gm---------------------120/180\n");
+    printf("[5]---------CHEESE SP PIZZA------------10/12Inches-------------------220/340\n");
+    printf("[6]---------COLD DRINKS----------------200ml-------------------------180\n");
+    printf("[7]---------COFFEE---------------------150ml-------------------------65\n");
+    printf("[8]---------IRANI TEA------------------150ml-------------------------70\n");
+    printf("[9]---------FRENCH FRIES---------------150/300mg---------------------120/230\n\n");
+    printf("[10]---------DESERTS--------------------200/300gm---------------------130/180\n");
+    back:
+    printf ("How many items you want to order? ");
+    scanf ("%d", &n);
+    int q,cd;
+
+
+    for(int m=0;m<n;m++)
+        {
+        printf ("\nEnter chosen item code\n");
+        scanf ("%d", &cd);
+
+        switch(cd){
+    case 1 :
+             {
+               printf ("Enter the size of Pizza:\n [1].10 inches  [2].12 inches  [3].14 inches\n");
+               int i;
+               scanf ("%d", &i);
+
+        printf ("\nPlease enter the quantity: ");
+        scanf ("%d",&q);
+
+        or[ordered].food_count += q;
+
+        if(i==1)
+            or[ordered].cost += q*550;
+
+        else if(i==2)
+            or[ordered].cost += q*775;
+        else
+            or[ordered].cost += q*950;
+        break;
+    }
+    case 2 :
+        {
+        printf("Enter the amount of chicken: [1].2 pcs  [2]. 4 pcs  [3]. 10 pcs\n");
+        int i;
+        scanf("%d", &i);
+        printf ("Please enter the quantity: ");
+        scanf ("%d",&q);
+        or[ordered].food_count += q;
+
+        if(i==1)
+            or[ordered].cost += q*145;
+
+        else if(i==2)
+            or[ordered].cost += q*310;
+        else
+            or[ordered].cost += q*600;
+
+
+        break;
+    }
+    case 3 :{
+        printf ("Enter the size of Sp Biryani: 1. Single  2. Full\n");
+        int i;
+        scanf ("%d",&i);
+
+        printf ("Please enter the quantity: ");
+        scanf ("%d",&q);
+
+        or[ordered].food_count +=q;
+
+        if (i==1)
+            or[ordered].cost += q*110;
+
+        else
+            or[ordered].cost += q*250;
+
+            break;
+    }
+    case 4 :{
+        printf ("Enter the size of Burger: 1. 150mg  2. 300mg\n");
+        int i;
+        scanf ("%d",&i);
+
+        printf ("Please enter the quantity: ");
+        scanf ("%d",&q);
+
+        or[ordered].food_count +=q;
+
+        if (i==1)
+            or[ordered].cost += q*120;
+
+        else
+            or[ordered].cost += q*180;
+
+       break;
+    }
+    case 5 :
+        {   printf ("Enter the size of Pizza:\n [1].10 inches  [2].12 inches  \n");
+               int i;
+               scanf ("%d", &i);
+
+        printf ("\nPlease enter the quantity: ");
+        scanf ("%d",&q);
+
+        or[ordered].food_count+=q;
+
+        if(i==1)
+            or[ordered].cost += q*220;
+
+        else
+            or[ordered].cost += q*340;
+
+
+        break;
+    }
+    case 6 :{
+        printf ("Enter the flavor of drink: [1]. Oreo shake (Rs.180) [2]. Fruit shake (Rs.200) \n");
+        int i;
+        scanf ("%d", &i);
+
+        printf ("Please enter the quantity: ");
+        scanf ("%d", &q);
+
+        or[ordered].food_count +=q;
+
+        if(i==1)
+               or[ordered].cost += (180*q);
+
+        else
+               or[ordered].cost += (200*q);
+
+        break;
+    }
+    case 7 : {
+        printf ("Enter your choice : [1].Hot Coffee (Rs.70) [2].Cold Coffee (Rs.65) \n");
+        int i;
+        scanf ("%d", &i);
+
+        printf ("Please enter the quantity: ");
+        scanf ("%d", &q);
+
+        or[ordered].food_count +=q;
+
+        if(i==1)
+               or[ordered].cost += (70*q);
+
+        else
+               or[ordered].cost += (65*q);
+
+        break;
+    }
+    case 8 : {
+
+        printf ("Enter your choice : [1].Irani sp Tea (Rs.70) [2].Kashmiri Tea (Rs.65) \n");
+        int i;
+        scanf ("%d", &i);
+
+        printf ("Please enter the quantity: ");
+        scanf ("%d", &q);
+
+        or[ordered].food_count +=q;
+
+        if(i==1)
+               or[ordered].cost += (70*q);
+
+        else
+               or[ordered].cost += (65*q);
+
+        break;
+    }
+    case 9 : {
+        printf ("Enter the size.: [1].150 mg   [2].300mg\n");
+        int i;
+        scanf ("%d", &i);
+
+        printf ("Please enter the quantity: ");
+        scanf ("%d", &q);
+
+        or[ordered].food_count +=q;
+
+        if(i==1)
+               or[ordered].cost += (120*q);
+
+        else
+               or[ordered].cost += (230*q);
+
+        break;
+    }
+    case 10 :{
+        printf ("Enter the Desert you want: [1].Jamun    [2]. Rasa golla\n");
+        int j;
+        scanf("%d",&j);
+        int i;
+        printf("enter the size: [1].200mg [2].300mg\n");
+        scanf ("%d", &i);
+        int q;
+
+        printf ("Please enter the quantity: ");
+        scanf ("%d", &q);
+
+        or[ordered].food_count +=q;
+
+        if (i==1)
+            or[ordered].cost += (130*q);
+
+        else
+            or[ordered].cost += (180*q);
+        break;
+    }
+    default : {
+        printf ("Invalid selection try again\n");
+        n++;
+              }
+
+  }}
+  printf("any other item do you want ? (y/n)");
+  char ch;
+  scanf("%c",&ch);
+if(ch== 'y' || ch== 'Y')
+          goto back;
+else{
+   printf ("\nNumber of food ordered %d\n", or[ordered].food_count);
+    printf ("\nThank you %s for your order. Your bill is RS. %d.\nPlease wait while we prepare the food.\n\n", or[ordered].name, or[ordered].cost);
+    ordered++;
+   or[ordered].order_no++;
+}
+}
+
+int serve()
+{
+    if (ordered==0)
+        {
+        printf ("Please order first\n");
+        return 0;
+        }
+
+    else if (served == ordered)
+        {
+        printf ("All order served\n");
+        return 0;
+        }
+
+    printf ("Order no. %d by %s is ready\n",or[ordered].order_no,or[ordered].name);
+    printf ("Enjoy your FOOD.!!!!!!\n\n");
+    served++;
+}
+
+int display ()
+{
+    printf ("Total order taken: %d\n", (ordered));
+    printf ("Total number of order served %d\n", served);
+    printf ("Number of Currently waiting to be served: %d\n", (ordered-served));
+    printf ("Currently preparing food for order no. %d\n\n", or[ordered].order_no);
+}
+int main ()
+{
+    printf ("\t\t\t\t\t WELCOME TO IMPERIAL SONU's CAFE \t\t\t\t\t\n");
+    while (1)
+    {
+        printf ("1. Order\n2. Serve\n3. Display \n4. Exit the program\n");
+
+        int in;
+        scanf ("%d", &in);
+        switch (in){
+            case 1 : {
+                items();
+                break;
+            }
+            case 2 : {
+                serve();
+                break;
+            }
+            case 3 : {
+                display();
+                break;
+            }
+            case 4 : {
+                printf("THANK YOU FOR VISTING \n    COME AGAIN\n");
+                    exit(0);
+
+            }
+}        }}
+
