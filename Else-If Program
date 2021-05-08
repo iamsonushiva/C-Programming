@@ -1,0 +1,23 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    float per;
+    printf("Enter the Percentage of the student\n");
+    scanf("%f",&per);
+    if(per>=80 && per<=100)
+        printf("GRADE A\n");
+    else if (per>=70 && per<80)
+        printf("GRADE B\n");
+    else if (per>=60 && per<70)
+        printf("GRADE c\n");
+    else if (per>=45 && per<60)
+        printf("GRADE D\n");
+    else if (per>=0 && per<45)
+        printf("FAIL\n");
+    else
+        printf("Invalid Percentage Entered\n");
+
+ return 0;
+}
